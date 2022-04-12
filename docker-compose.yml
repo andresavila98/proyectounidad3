@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+    db:
+        container_name: database
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: avila
+            MYSQL_DATABASE: escuela
+            MYSQL_USER: avila
+            MYSQL_PASSWORD: avila
+        volumes:
+          - ./escuela/data:/docker-entrypoint-initdb.d
+
+    php-apache-environment:
+        container_name: pagina
+        restart: always
+        build:
+            context: ./escuela
+            dockerfile: Dockerfile
+        depends_on:
+            - db
+        volumes:
+            - ./escuela:/var/www/html/
+        ports:
+            - 8010:80
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - '8020:80'
+        restart: always
+        environment:
+            PMA_HOST: database
+        depends_on:
+            - db

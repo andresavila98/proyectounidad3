@@ -1,0 +1,24 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="utf-8">
+ 	<title>Agregrar clase</title>
+ 	<link rel="stylesheet" type="text/css" href="css/form.css">
+ 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+ 	<form style="color:#fff; font-size: 20px; padding-left: 20px" action="crudclases/nuevaclase.php" method="POST">
+ 		<h1>Agregar clase</h1>
+ 		<label for="id">ID</label>
+ 		<input type="text" name="id" id="id" placeholder="opcional"><br>
+ 		<label for="clase">CLASE</label>
+ 		<input type="text" name="clase" id="clase" required><br>
+ 		<label for="maestro">MAESTRO</label>
+ 		<input type="text" name="maestro" id="maestro" required><br>
+ 		<label for="semestre">SEMESTRE</label>
+ 		<input type="text" name="semestre" id="semestre" required><br>
+ 		<button class="btn-success" name="update" type="submit">guardar</button>
+ 	</form>
+
+ </body>
+ </html>
